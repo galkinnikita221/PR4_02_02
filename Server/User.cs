@@ -15,7 +15,7 @@ namespace Server
         public User(string login, string pasword, string src)
         {
             this.login = login;
-            this.password = password;
+            this.password = pasword;
             this.src = src;
 
             temp_src = src;

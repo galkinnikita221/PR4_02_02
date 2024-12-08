@@ -18,7 +18,7 @@ namespace Server
         public static int Port;
         static void Main(string[] args)
         {
-            Users.Add(new User("galkin", "Asdfg123", @"C:\Users\student-a210\Pictures"));
+            Users.Add(new User("123", "123", @"C:\\temp\\"));
             Console.Write("Введите IP адрес сервера: ");
             string sIpAddress = Console.ReadLine();
             Console.Write("Введите порт: ");
@@ -48,10 +48,10 @@ namespace Server
                 foreach (string dir in dirs)
                 {
                     string NameDirectory = dir.Replace(src, "");
-                    FoldersFiles.Add(NameDirectory = "/");
+                    FoldersFiles.Add(NameDirectory + "/");
                 }
                 string[] files = Directory.GetFiles(src);
-                foreach(string file in files)
+                foreach (string file in files)
                 {
                     string NameFile = file.Replace(src, "");
                     FoldersFiles.Add(NameFile);
@@ -112,6 +112,7 @@ namespace Server
                                 if (DataMessage.Length == 1)
                                 {
                                     Users[ViewModelSend.Id].temp_src = Users[ViewModelSend.Id].src;
+                                    FoldersFiles = GetDirectory(Users[ViewModelSend.Id].src);
                                 }
                                 else
                                 {
@@ -162,7 +163,8 @@ namespace Server
                             if (ViewModelSend.Id != -1)
                             {
                                 FileInfoFTP SendFileInfo = JsonConvert.DeserializeObject<FileInfoFTP>(ViewModelSend.Message);
-                                File.WriteAllBytes(Users[ViewModelSend.Id].temp_src + @"\" + SendFileInfo.Name, SendFileInfo.Data);
+                                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                                File.WriteAllBytes(Path.Combine(desktopPath, SendFileInfo.Name), SendFileInfo.Data);
                                 viewModelMessage = new Common.ViewModelMessage("message", "Файл загружен");
                             }
                             else
@@ -172,7 +174,8 @@ namespace Server
                             Handler.Send(message);
                         }
                     }
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Что-то случилось: " + ex.Message);

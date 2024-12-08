@@ -1,4 +1,5 @@
 ﻿using Common;
+using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Client
 {
@@ -138,7 +138,7 @@ namespace Client
                         {
                             string[] DataMessage = viewModelSend.Message.Split(new string[1] { " " }, StringSplitOptions.None);
                             string getFile = "";
-                            for (int i = = 1; i < DataMessage.Length; i++)
+                            for (int i = 1; i < DataMessage.Length; i++)
                             {
                                 if (getFile == "")
                                     getFile = DataMessage[i];
