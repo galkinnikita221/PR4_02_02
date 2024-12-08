@@ -31,7 +31,7 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="5">
-                    <TextBlock Text="Password:" VerticalAlignment="Center" Width="90" Foreground="White"/>
+                    <TextBlock Text="Password:" VerticalAlignment="Center" Width="60" Foreground="White"/>
                     <PasswordBox x:Name="txtPassword" Width="180" Padding="8" FontSize="14" Background="#f0f0f0" BorderBrush="#B0B0B0" BorderThickness="1"/>
                 </StackPanel>
 
@@ -43,8 +43,8 @@
         <Grid VerticalAlignment="Bottom" Margin="10,20,10,150">
             <Label Content="Директория сервера:" HorizontalAlignment="Left" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,10,0,5"/>
 
-            <Button x:Name="downloadBtn" Content="Загрузить на сервер" Width="170" Height="40" HorizontalAlignment="Right" Margin="0,5,10,5" Click="Download" Background="#2196F3" Foreground="White" FontSize="16" FontWeight="Bold" BorderBrush="#1976D2" BorderThickness="2"/>
+            <Button x:Name="downloadBtn" Content="Загрузка" Width="170" Height="40" HorizontalAlignment="Right" Margin="0,5,10,5" Click="Download" Background="#2196F3" Foreground="White" FontSize="16" FontWeight="Bold" BorderBrush="#1976D2" BorderThickness="2"/>
         </Grid>
-        <ListBox x:Name="lstDirectories" Height="140" Margin="0,390,0,10" Background="#ffffff80" FontSize="14" MouseDoubleClick="lstDirectories_MouseDoubleClick" BorderBrush="#B0BEC5" BorderThickness="1"/>
+        <ListBox x:Name="lstDirectories" Height="140" Margin="0,390,0,10" Background="CadetBlue" FontSize="14" MouseDoubleClick="lstDirectories_MouseDoubleClick" BorderBrush="#B0BEC5" BorderThickness="1"/>
     </Grid>
 </Window>
